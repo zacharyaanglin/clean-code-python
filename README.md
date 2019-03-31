@@ -207,7 +207,7 @@ you are expecting a string as the argument.
 **Good**:
 
 ```python
-def create_micro_brewery(name: str="Hipster Brew Co."):
+def create_micro_brewery(name: str = "Hipster Brew Co."):
     slug = hashlib.sha1(name.encode()).hexdigest()
     # etc.
 ```
@@ -496,7 +496,9 @@ def parse(tokens: list) -> list:
 
 ### Don't use flags as function parameters
 
-Flags tell your user that this function does more than one thing. Functions should do one thing. Split your functions if they are following different code paths based on a boolean.
+Flags tell your user that this function does more than one thing. Functions 
+should do one thing. Split your functions if they are following different code 
+paths based on a boolean.
 
 **Bad:**
 
