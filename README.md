@@ -610,3 +610,35 @@ configuration = Configuration(
 )
 ```
 And now, you may use this instance of `Configuration` in your application.
+
+**[⬆ back to top](#table-of-contents)**
+
+### Don't use a Singleton pattern
+
+Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button: 
+1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
+2. They violate the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle): by virtue of the fact that **they can control their own creation and lifecycle**.
+3. They inherently cause code to be tightly coupled. This makes faking them out under test rather difficult in many cases.
+4. They carry state around for the lifetime of the application. Another hit to testing since you can end up with a situation where tests need to be ordered, which is a big no for unit tests. Why? Because each unit test should be independent from all others.
+
+There are also very good thoughts by [Misko Hevery](http://misko.hevery.com/about/) about the [root of the problem](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
+
+**Bad:**
+```python
+class Singleton(type):
+    """
+    Define an Instance operation that lets clients access its unique
+    instance.
+    """
+
+    def __init__(cls, name, bases, attrs, **kwargs):
+        super().__init__(name, bases, attrs)
+        cls._instance = None
+
+    def __call__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__call__(*args, **kwargs)
+        return cls._instance
+
+class DBConnection(Singleton):
+    
