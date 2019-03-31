@@ -526,7 +526,7 @@ def create_temp_file(name: str) -> None:
 
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid Side Effects
+### Avoid side effects
 
 A function produces a side effect if it does anything other than take a value in 
 and return another value or values. A side effect could be writing to a file,
