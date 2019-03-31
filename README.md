@@ -489,4 +489,6 @@ def parse(tokens: list) -> list:
         # Append the parsed token to the syntax tree.
 
     return syntax_tree
+```
 
+**[⬆ back to top](#table-of-contents)**
