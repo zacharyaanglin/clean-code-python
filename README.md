@@ -20,8 +20,8 @@ Software engineering principles, from Robert C. Martin's book
 adapted for Python. This is not a style guide. It's a guide to producing
 readable, reusable, and refactorable software in Python.
 
-Not every principle herein has to be strictly followed, and even fewer will be universally
-agreed upon. These are guidelines and nothing more, but they are ones codified over many
+Not every principle herein has to be strictly followed, and even fewer will be universally 
+agreed upon. These are guidelines and nothing more, but they are ones codified over many 
 years of collective experience by the authors of *Clean Code*.
 
 Inspired from [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
@@ -79,8 +79,8 @@ class User:
 **[⬆ back to top](#table-of-contents)**
 
 ### Use searchable names
-We will read more code than we will ever write. It's important that the code we do write is
-readable and searchable. By *not* naming variables that end up being meaningful for
+We will read more code than we will ever write. It's important that the code we do write is 
+readable and searchable. By *not* naming variables that end up being meaningful for 
 understanding our program, we hurt our readers.
 Make your names searchable.
 
@@ -215,13 +215,13 @@ def create_micro_brewery(name: str="Hipster Brew Co."):
 **[⬆ back to top](#table-of-contents)**
 ## **Functions**
 ### Function arguments (2 or fewer ideally)
-Limiting the amount of function parameters is incredibly important because it makes
-testing your function easier. Having more than three leads to a combinatorial explosion
+Limiting the amount of function parameters is incredibly important because it makes 
+testing your function easier. Having more than three leads to a combinatorial explosion 
 where you have to test tons of different cases with each separate argument.
 
-Zero arguments is the ideal case. One or two arguments is ok, and three should be avoided.
-Anything more than that should be consolidated. Usually, if you have more than two
-arguments then your function is trying to do too much. In cases where it's not, most
+Zero arguments is the ideal case. One or two arguments is ok, and three should be avoided. 
+Anything more than that should be consolidated. Usually, if you have more than two 
+arguments then your function is trying to do too much. In cases where it's not, most 
 of the time a higher-level object will suffice as an argument.
 
 **Bad:**
@@ -352,10 +352,10 @@ create_menu(
 **[⬆ back to top](#table-of-contents)**
 
 ### Functions should do one thing
-This is by far the most important rule in software engineering. When functions do more
-than one thing, they are harder to compose, test, and reason about. When you can isolate
-a function to just one action, they can be refactored easily and your code will read much
-cleaner. If you take nothing else away from this guide other than this, you'll be ahead
+This is by far the most important rule in software engineering. When functions do more 
+than one thing, they are harder to compose, test, and reason about. When you can isolate 
+a function to just one action, they can be refactored easily and your code will read much 
+cleaner. If you take nothing else away from this guide other than this, you'll be ahead 
 of many developers.
 
 **Bad:**
